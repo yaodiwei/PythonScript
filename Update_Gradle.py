@@ -15,7 +15,6 @@ ANDROID_SUPPORT_LIBRARY = '25.3.1'
 file_string_list = []
 target_line = -1
 distributionUrl_keyword = 'distributionUrl=https\\://services.gradle.org/distributions/'
-distributionUrl_string = None
 target_file = os.path.join(PATH, 'gradle', 'wrapper', 'gradle-wrapper.properties')
 if os.path.isfile(target_file):
     with open(target_file, 'r') as f:
@@ -42,7 +41,6 @@ if os.path.isfile(target_file):
 file_string_list = []
 target_line = -1;
 androidGradlePulgin_keyword = 'classpath \'com.android.tools.build:gradle:'
-androidGradlePulgin_string = None
 target_file = os.path.join(PATH, 'build.gradle')
 if os.path.isfile(target_file):
     with open(target_file, 'r') as f:
@@ -66,19 +64,14 @@ if os.path.isfile(target_file):
                     f.write(androidGradlePulgin_string)
 
 # 针对每个module的build.gradle
-currentSdkVersion = None
 compileSdkVersion_line = -1
 compileSdkVersion_keyword = 'compileSdkVersion '
-compileSdkVersion_string = None
 buildToolsVersion_line = -1
 buildToolsVersion_keyword = 'buildToolsVersion '
-buildToolsVersion_string = None
 targetSdkVersion_line = -1
 targetSdkVersion_keyword = 'targetSdkVersion '
-targetSdkVersion_string = None
 support_lib = {} #key为行数,value为前缀
 support_lib_find_keyword = 'com.android.support:'
-support_lib_split_keywrod = None
 
 dir_list = [x for x in os.listdir(PATH) if os.path.isdir(os.path.join(PATH, x)) and not x.startswith('.') and not x == 'gradle']
 # print(dir_list)
