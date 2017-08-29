@@ -18,7 +18,7 @@ distributionUrl_keyword = 'distributionUrl=https\\://services.gradle.org/distrib
 target_file = os.path.join(PATH, 'gradle', 'wrapper', 'gradle-wrapper.properties')
 if os.path.isfile(target_file):
     with open(target_file, 'r') as f:
-        current_line = 0;
+        current_line = 0
         for line in f.readlines():
             file_string_list.append(line)
             current_line += 1
@@ -29,7 +29,7 @@ if os.path.isfile(target_file):
                 target_line = current_line
     if target_line != -1:
         with open(target_file, 'w') as f:
-            current_line = 0;
+            current_line = 0
             for x in file_string_list:
                 current_line += 1
                 if target_line != current_line:
@@ -39,12 +39,12 @@ if os.path.isfile(target_file):
 
 # 针对该工程的build.gradle
 file_string_list = []
-target_line = -1;
+target_line = -1
 androidGradlePulgin_keyword = 'classpath \'com.android.tools.build:gradle:'
 target_file = os.path.join(PATH, 'build.gradle')
 if os.path.isfile(target_file):
     with open(target_file, 'r') as f:
-        current_line = 0;
+        current_line = 0
         for line in f.readlines():
             file_string_list.append(line)
             current_line += 1
@@ -55,7 +55,7 @@ if os.path.isfile(target_file):
                 androidGradlePulgin_string = prefix + ANDROID_GRADLE_PLUGIN + '\'\n'
     if target_line != -1:
         with open(target_file, 'w') as f:
-            current_line = 0;
+            current_line = 0
             for x in file_string_list:
                 current_line += 1
                 if target_line != current_line:
@@ -80,7 +80,7 @@ for target_file in dir_list:
     target_file = os.path.join(PATH, target_file, 'build.gradle')
     if os.path.isfile(target_file):
         with open(target_file, 'r') as f:
-            current_line = 0;
+            current_line = 0
             for line in f.readlines():
                 file_string_list.append(line)
                 current_line += 1
@@ -109,7 +109,7 @@ for target_file in dir_list:
                         support_lib[current_line] = support_lib_string
         if compileSdkVersion_line != -1:
             with open(target_file, 'w') as f:
-                current_line = 0;
+                current_line = 0
                 for x in file_string_list:
                     current_line += 1
                     if current_line == compileSdkVersion_line:
